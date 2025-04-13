@@ -1,0 +1,26 @@
+{
+    "intro": {
+      "title": "Hi, Jazzy Here!",
+      "description": "Trying to do a lot of things because life is short, and I want to give things a shot."
+    },
+    "links": [
+      {
+        "title": "🎙️ My Podcast Channel",
+        "description": "Nothing fancy, just me eating brains out.",
+        "url": "https://entropy-time.podbean.com/",
+        "buttonText": "Visit Podcast"
+      },
+      {
+        "title": "✍️ My Blog",
+        "description": "For those rare moments when I manage to not be lazy and write things up.",
+        "url": "https://seekersays.substack.com/p/feeding",
+        "buttonText": "Read Blog"
+      },
+      {
+        "title": "🎥 My Movie Review Collection",
+        "description": "Cause I love to store memories of how movies made me feel or what I liked about them.",
+        "url": "https://letterboxd.com/chaosranger007/",
+        "buttonText": "View Reviews"
+      }
+    ]
+  }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="jazzy's personal space for links and thoughts!">
+    <title>Hi, Jazzy Here!</title>
+    <!-- Link to the favicon -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="carrot-icon">🥕</div>
+            <h1 id="title"></h1>
+            <p id="description" class="intro-text"></p>
+        </header>
+        <main id="links" class="links"></main>
+        <footer>
+            <p>&copy; 2025 Jazzy. All carrots eaten. <span class="carrot">🥕</span></p>
+        </footer>
+    </div>
+    <script>
+        // Fetch content from JSON and render it dynamically
+        fetch('content.json')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Failed to load JSON content');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                // Populate the intro section
+                document.getElementById('title').textContent = data.intro.title;
+                document.getElementById('description').textContent = data.intro.description;
+
+                // Populate the links section
+                const linksContainer = document.getElementById('links');
+                data.links.forEach((link) => {
+                    const linkCard = document.createElement('div');
+                    linkCard.classList.add('link-card');
+
+                    linkCard.innerHTML = `
+                        <h2>${link.title}</h2>
+                        <p>${link.description}</p>
+                        <a href="${link.url}" target="_blank" class="button">${link.buttonText}</a>
+                    `;
+                    linksContainer.appendChild(linkCard);
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.body.innerHTML = '<p>Failed to load content. Please try again later.</p>';
+            });
+    </script>
+</body>
+</html>
